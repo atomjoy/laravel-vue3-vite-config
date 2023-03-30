@@ -27,7 +27,6 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-    base: '/', // Default route is /build directory
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
@@ -42,6 +41,16 @@ export default defineConfig({
             },
         }),
     ],
+    // Change base
+	// base: './', // Default url is /build directory    
+    // Or change assets dir
+	build: {
+		rollupOptions: {
+			output: {
+				assetFileNames: 'assets/[ext]/[name][extname]',
+			},
+		},
+	},
 });
 ```
 
