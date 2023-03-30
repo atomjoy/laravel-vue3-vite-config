@@ -22,35 +22,40 @@ npm install @vitejs/plugin-vue
 ### vite.config.js
 
 ```js
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite'
+import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-        }),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
-                },
-            },
-        }),
-    ],
-    // Change base
-	// base: './', // Default url is /build directory    
-    // Or change assets dir
-	build: {
-		rollupOptions: {
-			output: {
-				assetFileNames: 'assets/[ext]/[name][extname]',
+	plugins: [
+		laravel({
+			input: ['resources/css/app.css', 'resources/js/app.js'],
+			refresh: true,
+		}),
+		vue({
+			template: {
+				transformAssetUrls: {
+					base: null,
+					includeAbsolute: false,
+				},
 			},
-		},
+		}),
+	],
+	// Change default url /build directory
+	base: './', 
+	build: {
+		emptyOutDir: true,
 	},
+	// Or change assets dir
+	// build: {
+	// 	rollupOptions: {
+	// 		output: {
+	// 			assetFileNames: 'assets/[ext]/[name].[hash].[extname]',
+	// 			chunkFileNames: 'chunks/[name].[hash].js',
+	// 			entryFileNames: 'js/[name].[hash].js',
+	// 		},
+	// 	},
+	// },
 });
 ```
 
