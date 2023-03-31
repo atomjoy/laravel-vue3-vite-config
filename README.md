@@ -135,11 +135,12 @@ npm install @googlemaps/js-api-loader
 ```
 
 ## Override ** /build ** dir in page url
-```
-# Add this in vue router/index.js
+
+```js
+// Add this in vue router/index.js
 history: createWebHistory('/')
 
-# Or add in vite.config.js
+// Or add in vite.config.js
 base: './', 
 ```
 
