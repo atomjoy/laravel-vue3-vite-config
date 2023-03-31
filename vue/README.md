@@ -31,8 +31,8 @@ Route::fallback(function() {
 
 ```sh
 npm install
-npm install vue@next vue-loader@next
-npm install @vitejs/plugin-vue
+npm install vue@next
+npm install --save-dev @vitejs/plugin-vue
 npm install axios
 npm install pinia
 npm install vue-i18n@9
