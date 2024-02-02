@@ -13,7 +13,7 @@ cd laravel-vue
 
 ```sh
 npm install
-npm install vue@next
+npm install vue@latest
 npm install --save-dev @vitejs/plugin-vue
 ```
 
