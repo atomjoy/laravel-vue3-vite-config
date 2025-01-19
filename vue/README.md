@@ -1,27 +1,30 @@
-# Vue 3 with router, stores and locales
+# Vue 3 in Laravel with router, stores and locales
 
-How To Install Vue 3 in Laravel 10 with Vite (router, locales, stores).
+How To Install Vue 3 in Laravel 11 with Vite (router, locales, stores).
 
 ## Create project
 
-Copy files from vue to laravel-project directory.
+Copy files from **vue** to laravel-project directory.
 
 ```sh
-composer create-project --prefer-dist laravel/laravel:^10.0 laravel-project
+composer create-project --prefer-dist laravel/laravel:^11 laravel-project
+
 cd laravel-project
-```
-
-### Change in .env
-
-```sh
-APP_URL=http://localhost:8000
 ```
 
 ### Add in routes/web.php
 
 ```php
 <?php
-// Last route
+// Laravel routes
+// ...
+
+// Vue routes
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Vue Last route
 Route::fallback(function() {
     return view('welcome');
 });
@@ -45,4 +48,12 @@ npm install @googlemaps/js-api-loader
 ```sh
 npm run build
 php artisan serve
+php artisan serve --host=localhost --port=8000
+```
+
+### Change in .env
+
+```sh
+# Dev server only
+APP_URL=http://localhost:8000
 ```
