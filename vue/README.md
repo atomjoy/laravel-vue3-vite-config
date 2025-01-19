@@ -25,9 +25,11 @@ Route::get('/', function () {
 });
 
 // Vue Last route
-Route::fallback(function() {
-    return view('welcome');
-});
+if (!app()->runningUnitTests()) {
+	Route::fallback(function() {
+	    return view('welcome');
+	});
+}
 ```
 
 ## Install
