@@ -1,6 +1,6 @@
-# Vue 3 in Laravel 11
+# Vue 3 in Laravel 11 with Vite
 
-How To Install Vue 3 in Laravel with Vite (router, i18n translation, pinia store).
+How To Install Vue 3 in Laravel with Vite (vue-router, i18n locale translation, pinia store).
 
 ## Full SPA example
 
