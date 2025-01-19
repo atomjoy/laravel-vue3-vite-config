@@ -1,4 +1,4 @@
-# Vue 3 in Laravel with router, stores and locales
+# Vue 3 in Laravel 11 with router, stores and locales
 
 How To Install Vue 3 in Laravel 11 with Vite (router, locales, stores).
 
