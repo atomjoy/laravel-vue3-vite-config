@@ -1,83 +1,5 @@
-<template>
-	<div class="change-locale">
-		<select v-model="locale" class="locale-select">
-			<option v-for="lang in availableLocales" :key="`locale-${lang}`" :value="lang">
-				{{ t(lang) }}
-			</option>
-		</select>
-	</div>
-</template>
-
-<script setup>
-import axios from 'axios'
-import { useI18n } from 'vue-i18n'
-import { watch, onMounted } from 'vue'
-
-const { t, locale, availableLocales } = useI18n({ useScope: 'global' })
-
-const props = defineProps({
-	locale_url: { default: '/web/api/locale/' },
-})
-
-onMounted(() => {
-	console.log('Change locale', locale.value, availableLocales)
-})
-
-watch(
-	() => locale.value,
-	(lang) => {
-		changeLocale(lang)
-	}
-)
-
-async function changeLocale(locale) {
-	if (props.locale_url) {
-		try {
-			// Server update
-			// await axios.get(props.locale_url + locale)
-		} catch (err) {
-			console.log('Change locale error', err)
-		}
-	}
-}
-</script>
-
-<style scoped>
-.change-locale {
-	float: right;
-	width: auto;
-	height: 44px;
-	margin: 5px;
-	background: var(--bg-primary);
-	border-radius: var(--border-radius);
-	border: 0px solid var(--divider-primary);
-}
-.change-locale .locale-select {
-	box-sizing: border-box;
-	min-width: 60px;
-	height: 42px;
-	float: left;
-	border: 0px;
-	cursor: pointer;
-	text-align: center;
-	padding-left: 5px;
-	font-size: 14px;
-	background: var(--bg-primary);
-	border-radius: var(--border-radius);
-}
-.change-locale .locale-select option,
-.change-locale .locale-select > * {
-	background: var(--bg-primary);
-	color: var(--text-primary);
-}
-.change-locale .locale-select:focus {
-	border: none;
-	box-shadow: none;
-}
-</style>
-
 <!--
-// Old mini version
+// Old style new version in utils
 // https://vue-i18n.intlify.dev/guide/advanced/composition.html#global-scope
 // Add in main i18n options main.js
 
@@ -102,3 +24,60 @@ const lang = {
 const i18n = createI18n(lang)
 app.use(i18n)
 -->
+
+<template>
+	<div class="locale-changer">
+		<select v-model="locale" class="locale-changer-select">
+			<option v-for="lang in availableLocales" :key="`locale-${lang}`" :value="lang">{{ t(lang) }}</option>
+		</select>
+	</div>
+</template>
+
+<script setup>
+import { watch, computed, onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth.js'
+import { useI18n } from 'vue-i18n'
+
+const { t, locale, availableLocales } = useI18n({ useScope: 'global' })
+const store = useAuthStore()
+
+onMounted(() => {
+	console.log('Current locale', locale.value, availableLocales)
+})
+
+watch(
+	() => locale.value,
+	(lang) => {
+		console.log('Changed locale', lang)
+		store.changeLocale(lang)
+	}
+)
+
+const msg = computed(() => t('example.msg'))
+</script>
+
+<style scoped>
+.locale-changer {
+	float: right;
+	width: auto;
+	height: auto;
+	padding: 5px;
+}
+.locale-changer-select {
+	float: right;
+	display: inline;
+	padding: 2px;
+	text-align: center;
+	border: 0px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.locale-changer-select > * {
+	background: #fff;
+	color: #222;
+}
+.locale-changer-select:focus {
+	border: none;
+	box-shadow: none;
+}
+</style>
