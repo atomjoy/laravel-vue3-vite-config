@@ -1,15 +1,17 @@
-# Vue 3 in Laravel
+# Vue 3 in Laravel 11
 
-How To Install Vue 3 in Laravel 10 with Vite.
+How To Install Vue 3 in Laravel with Vite (router, i18n ranslation, pinia store).
 
 ## Create project
 
 ```sh
-composer create-project --prefer-dist laravel/laravel:^10.0 laravel-vue
+composer create-project --prefer-dist laravel/laravel:^11.0 laravel-vue
 cd laravel-vue
 ```
 
 ## Install
+
+Minimal SPA application. Full example with router, i18n translation and pinia store in **vue** directory.
 
 ```sh
 npm install
@@ -134,7 +136,7 @@ npm install vue-router@4
 npm install @googlemaps/js-api-loader
 ```
 
-## Override ** /build ** dir in page url
+## Override /build dir in page url
 
 ```js
 // Add this in vue router/index.js
