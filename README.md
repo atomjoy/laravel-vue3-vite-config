@@ -1,22 +1,30 @@
 # Vue 3 in Laravel 11
 
-How To Install Vue 3 in Laravel with Vite (router, i18n ranslation, pinia store).
+How To Install Vue 3 in Laravel with Vite (router, i18n translation, pinia store).
 
-## Create project
+## Full SPA example
+
+Full example with router, i18n translation and pinia store in **vue** directory <https://github.com/atomjoy/laravel-vue3-vite-config/tree/main/vue>.
+
+## Minimal SPA example (landing page)
+
+Create Laravel project with composer.
 
 ```sh
-composer create-project --prefer-dist laravel/laravel:^11.0 laravel-vue
+composer create-project laravel/laravel laravel-vue --prefer-dist
+
 cd laravel-vue
 ```
 
-## Install
+### Vue, Vite plugins
 
-Minimal SPA application. Full example with router, i18n translation and pinia store in **vue** directory.
+Minimal SPA application.
 
 ```sh
 npm install
 npm install vue@latest
 npm install --save-dev @vitejs/plugin-vue
+npm install axios
 ```
 
 ## Config
@@ -119,24 +127,14 @@ Route::fallback(function() {
 });
 ```
 
-## Build and run
+### Build and run
 
 ```sh
 npm run build
 php artisan serve
 ```
 
-## Install optional packages
-
-```sh
-npm install axios
-npm install pinia
-npm install vue-i18n@9
-npm install vue-router@4
-npm install @googlemaps/js-api-loader
-```
-
-## Override /build dir in page url
+## Override /build dir in page url (errors)
 
 ```js
 // Add this in vue router/index.js
