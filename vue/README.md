@@ -43,6 +43,7 @@ npm install pinia
 npm install vue-i18n@9
 npm install vue-router@4
 npm install @googlemaps/js-api-loader
+npm install @highlightjs/vue-plugin
 ```
 
 ## Build and run
