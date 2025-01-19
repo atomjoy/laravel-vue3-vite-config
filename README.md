@@ -110,21 +110,24 @@ createApp(App).mount("#app")
 </html>
 ```
 
-### .env
-
-```sh
-APP_URL=http://localhost:8000
-```
-
 ### routes/web.php
 
 ```php
 <?php
+// Laravel routes
+// ...
 
-// Last route
-Route::fallback(function() {
+// Vue routes
+Route::get('/', function () {
     return view('welcome');
 });
+
+// Vue Last route
+if (!app()->runningUnitTests()) {
+	Route::fallback(function() {
+	    return view('welcome');
+	});
+}
 ```
 
 ### Build and run
@@ -132,6 +135,7 @@ Route::fallback(function() {
 ```sh
 npm run build
 php artisan serve
+php artisan serve --host=localhost --port=8000
 ```
 
 ## Override /build dir in page url (errors)
@@ -142,6 +146,13 @@ history: createWebHistory('/')
 
 // Or add in vite.config.js
 base: './', 
+```
+
+## App url in .env
+
+```sh
+# Dev server only
+APP_URL=http://localhost:8000
 ```
 
 ## Links
