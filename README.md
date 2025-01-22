@@ -72,7 +72,7 @@ export default defineConfig({
 ### resources/js/app.js
 
 ```js
-require('./bootstrap');
+import './bootstrap';
 
 import {createApp} from 'vue'
 
