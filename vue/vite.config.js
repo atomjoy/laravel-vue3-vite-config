@@ -32,4 +32,9 @@ export default defineConfig({
 	// 		},
 	// 	},
 	// },
+	// resolve: {
+	//     alias: {
+	//        '@username': '/resources/js/plugin/username', // Alias to directory
+	//     },
+	// },
 })
