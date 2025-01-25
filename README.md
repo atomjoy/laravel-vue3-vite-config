@@ -66,6 +66,11 @@ export default defineConfig({
 	// 		},
 	// 	},
 	// },
+	// resolve: {
+	//     alias: {
+	//        '@username': '/resources/js/plugin/username', // alias to directory
+	//     },
+	// },
 });
 ```
 
